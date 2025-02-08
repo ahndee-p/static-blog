@@ -3,43 +3,86 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Blog</title>
+    <title>Akio - Personal Portfolio</title>
     <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
-    <header>
-        <nav>
-            <a href="/">Home</a>
-            <a href="/blog.html">Blog</a>
-            <a href="/about.html">About</a>
-            <a href="/faq.html">FAQ</a>
-        </nav>
-    </header>
-    
-    <main>
-        <h1>Welcome to My Blog</h1>
-<p>Welcome to my personal corner of the internet! This is a simple, clean, and fast website built with basic web technologies.</p>
-<h2>Recent Posts</h2>
-<ul>
-<li><a href="/posts/getting-started.html">Getting Started with Web Development</a></li>
-<li><a href="/posts/simplicity.html">Why Simple is Better</a></li>
-<li><a href="/posts/static-sites.html">Building Static Sites</a></li>
-</ul>
-<h2>About Me</h2>
-<p>I&#39;m passionate about technology and writing. This blog is where I share my thoughts, experiences, and learnings about web development, technology, and other interesting topics.</p>
-<p><a href="/about.html">Read more about me →</a></p>
-<h2>Get in Touch</h2>
-<p>Feel free to reach out to me through:</p>
-<ul>
-<li>Email: <a href="mailto:your.email@example.com">your.email@example.com</a></li>
-<li>Twitter: <a href="https://twitter.com/yourusername">@yourusername</a></li>
-<li>GitHub: <a href="https://github.com/yourusername">yourusername</a></li>
-</ul>
+    <div class="container">
+        <header>
+            <div class="logo">
+                <a href="/">Akio</a>
+            </div>
+            <nav>
+                <a href="/" class="active">Home</a>
+                <a href="/about">About</a>
+                <a href="/work">Work</a>
+                <a href="/blog.html">Blog</a>
+                <a href="/writing">Writing</a>
+                <a href="#" class="pages-link">Pages <i class="fas fa-chevron-down"></i></a>
+            </nav>
+            <button class="theme-toggle">
+                <i class="fas fa-moon"></i>
+            </button>
+        </header>
 
-    </main>
+        <main>
+            <div class="hero-section">
+    <div class="profile-content">
+        <div class="profile-image">
+            <img src="/images/profile.jpg" alt="Profile photo">
+        </div>
+        <h1>Hey everyone, I'm<br>Andrew Perez</h1>
+        <p class="bio">Hi, I'm Andrew – Graphic Designer. I'm a creative and curious person who has a lot of experience and fond moments working with design, websites, and marketing.</p>
+        
+<pre><code>    &lt;div class=&quot;subscribe-form&quot;&gt;
+        &lt;input type=&quot;email&quot; placeholder=&quot;Your email address...&quot;&gt;
+        &lt;button class=&quot;subscribe-btn&quot;&gt;Subscribe&lt;/button&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
 
-    <footer>
-        <p>&copy; 2024 My Blog. All rights reserved.</p>
-    </footer>
+&lt;div class=&quot;workspace-image&quot;&gt;
+    &lt;img src=&quot;/images/workspace.jpg&quot; alt=&quot;Modern workspace setup&quot;&gt;
+&lt;/div&gt;
+</code></pre>
+</div>
+
+<section class="companies">
+    <h2>I've worked with some great companies</h2>
+    <div class="company-logos">
+        <img src="/images/logos/google.svg" alt="Google">
+        <img src="/images/logos/spotify.svg" alt="Spotify">
+        <img src="/images/logos/pinterest.svg" alt="Pinterest">
+        <img src="/images/logos/netlify.svg" alt="Netlify">
+        <img src="/images/logos/apple.svg" alt="Apple">
+        <img src="/images/logos/adobe.svg" alt="Adobe">
+    </div>
+</section> 
+        </main>
+    </div>
+
+    <script>
+        // Theme toggle functionality
+        const themeToggle = document.querySelector('.theme-toggle');
+        themeToggle.addEventListener('click', () => {
+            document.body.classList.toggle('dark-mode');
+            const icon = themeToggle.querySelector('i');
+            icon.classList.toggle('fa-moon');
+            icon.classList.toggle('fa-sun');
+        });
+
+        // Update active nav link
+        document.addEventListener('DOMContentLoaded', () => {
+            const currentPath = window.location.pathname;
+            const navLinks = document.querySelectorAll('nav a');
+            navLinks.forEach(link => {
+                if (link.getAttribute('href') === currentPath) {
+                    link.classList.add('active');
+                } else {
+                    link.classList.remove('active');
+                }
+            });
+        });
+    </script>
 </body>
 </html> 

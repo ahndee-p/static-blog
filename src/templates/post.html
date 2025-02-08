@@ -3,25 +3,57 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Blog Post - My Blog</title>
+    <title>Akio - Blog</title>
     <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
-    <header>
-        <nav>
-            <a href="/">Home</a>
-            <a href="/blog.html">Blog</a>
-            <a href="/about.html">About</a>
-            <a href="/faq.html">FAQ</a>
-        </nav>
-    </header>
-    
-    <main class="post-content">
-        {{content}}
-    </main>
+    <div class="container">
+        <header>
+            <div class="logo">
+                <a href="/">Akio</a>
+            </div>
+            <nav>
+                <a href="/">Home</a>
+                <a href="/about">About</a>
+                <a href="/work">Work</a>
+                <a href="/blog.html">Blog</a>
+                <a href="/writing">Writing</a>
+                <a href="#" class="pages-link">Pages <i class="fas fa-chevron-down"></i></a>
+            </nav>
+            <button class="theme-toggle">
+                <i class="fas fa-moon"></i>
+            </button>
+        </header>
 
-    <footer>
-        <p>&copy; 2024 My Blog. All rights reserved.</p>
-    </footer>
+        <main class="post-content">
+            {{content}}
+        </main>
+    </div>
+
+    <script>
+        // Theme toggle functionality
+        const themeToggle = document.querySelector('.theme-toggle');
+        themeToggle.addEventListener('click', () => {
+            document.body.classList.toggle('dark-mode');
+            const icon = themeToggle.querySelector('i');
+            icon.classList.toggle('fa-moon');
+            icon.classList.toggle('fa-sun');
+        });
+
+        // Update active nav link
+        document.addEventListener('DOMContentLoaded', () => {
+            const currentPath = window.location.pathname;
+            const navLinks = document.querySelectorAll('nav a');
+            navLinks.forEach(link => {
+                if (link.getAttribute('href') === '/blog.html' || 
+                    (currentPath.includes('/posts/') && link.getAttribute('href') === '/blog.html')) {
+                    link.classList.add('active');
+                } else {
+                    link.classList.remove('active');
+                }
+            });
+        });
+    </script>
 </body>
 </html> 

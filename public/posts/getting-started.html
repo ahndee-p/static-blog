@@ -3,65 +3,86 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Blog Post - My Blog</title>
+    <title>Akio - Blog</title>
     <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
-    <header>
-        <nav>
-            <a href="/">Home</a>
-            <a href="/blog.html">Blog</a>
-            <a href="/about.html">About</a>
-            <a href="/faq.html">FAQ</a>
-        </nav>
-    </header>
-    
-    <main class="post-content">
-        <h1>Getting Started with Web Development</h1>
-<p><em>Published on February 8, 2024</em></p>
-<p>Web development can seem overwhelming at first, but starting with the basics is the best approach. In this post, we&#39;ll explore the fundamental building blocks of web development.</p>
+    <div class="container">
+        <header>
+            <div class="logo">
+                <a href="/">Akio</a>
+            </div>
+            <nav>
+                <a href="/">Home</a>
+                <a href="/about">About</a>
+                <a href="/work">Work</a>
+                <a href="/blog.html">Blog</a>
+                <a href="/writing">Writing</a>
+                <a href="#" class="pages-link">Pages <i class="fas fa-chevron-down"></i></a>
+            </nav>
+            <button class="theme-toggle">
+                <i class="fas fa-moon"></i>
+            </button>
+        </header>
+
+        <main class="post-content">
+            <h1>Getting Started with Web Development</h1>
+<p>Web development is an exciting journey that combines creativity with technical skills. In this post, I&#39;ll share my experience and tips for those just starting out.</p>
 <h2>The Basics</h2>
-<p>Every website starts with three core technologies:</p>
+<p>When starting web development, you&#39;ll want to focus on three core technologies:</p>
 <ol>
-<li><strong>HTML</strong> - Structure</li>
-<li><strong>CSS</strong> - Style</li>
-<li><strong>JavaScript</strong> - Interactivity</li>
+<li><strong>HTML</strong> - The structure of web pages</li>
+<li><strong>CSS</strong> - The styling and layout</li>
+<li><strong>JavaScript</strong> - The interactivity and functionality</li>
 </ol>
-<h3>HTML</h3>
-<p>HTML (HyperText Markup Language) is the backbone of every webpage. Here&#39;s a simple example:</p>
-<pre><code class="language-html">&lt;!DOCTYPE html&gt;
-&lt;html&gt;
-  &lt;head&gt;
-    &lt;title&gt;My First Page&lt;/title&gt;
-  &lt;/head&gt;
-  &lt;body&gt;
-    &lt;h1&gt;Hello, World!&lt;/h1&gt;
-  &lt;/body&gt;
-&lt;/html&gt;
-</code></pre>
-<h3>CSS</h3>
-<p>CSS makes your websites look good. Here&#39;s a basic example:</p>
-<pre><code class="language-css">body {
-  font-family: sans-serif;
-  max-width: 800px;
-  margin: 0 auto;
-  padding: 20px;
-}
-</code></pre>
-<h2>Next Steps</h2>
-<p>Once you&#39;re comfortable with the basics, you can explore:</p>
+<h2>Learning Path</h2>
+<p>Here&#39;s a recommended path for beginners:</p>
+<ol>
+<li>Start with HTML basics</li>
+<li>Learn CSS fundamentals</li>
+<li>Practice building static websites</li>
+<li>Learn JavaScript basics</li>
+<li>Build interactive projects</li>
+<li>Learn a framework (React, Vue, etc.)</li>
+</ol>
+<h2>Resources</h2>
+<p>Here are some great resources to get started:</p>
 <ul>
-<li>Responsive Design</li>
-<li>CSS Frameworks</li>
-<li>JavaScript Libraries</li>
-<li>Backend Development</li>
+<li>MDN Web Docs</li>
+<li>freeCodeCamp</li>
+<li>CSS-Tricks</li>
+<li>JavaScript.info</li>
 </ul>
-<p>Remember, the key is to practice regularly and build projects that interest you. Start small and gradually increase complexity as you learn. </p>
+<h2>Next Steps</h2>
+<p>In the next post, we&#39;ll dive deeper into CSS layouts and responsive design. Stay tuned! </p>
 
-    </main>
+        </main>
+    </div>
 
-    <footer>
-        <p>&copy; 2024 My Blog. All rights reserved.</p>
-    </footer>
+    <script>
+        // Theme toggle functionality
+        const themeToggle = document.querySelector('.theme-toggle');
+        themeToggle.addEventListener('click', () => {
+            document.body.classList.toggle('dark-mode');
+            const icon = themeToggle.querySelector('i');
+            icon.classList.toggle('fa-moon');
+            icon.classList.toggle('fa-sun');
+        });
+
+        // Update active nav link
+        document.addEventListener('DOMContentLoaded', () => {
+            const currentPath = window.location.pathname;
+            const navLinks = document.querySelectorAll('nav a');
+            navLinks.forEach(link => {
+                if (link.getAttribute('href') === '/blog.html' || 
+                    (currentPath.includes('/posts/') && link.getAttribute('href') === '/blog.html')) {
+                    link.classList.add('active');
+                } else {
+                    link.classList.remove('active');
+                }
+            });
+        });
+    </script>
 </body>
 </html> 
